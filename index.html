@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Diamond Dust – اكتشف مجموعتنا الحصرية من أرقى العطور. جودة لا تُضاهى وأسعار لا تُقارن." />
+  <title>Diamond Dust | Luxury Perfumes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">الرئيسية</a></li>
+        <li><a href="#collection" class="nav-link">المجموعة</a></li>
+        <li><a href="#about" class="nav-link">من نحن</a></li>
+        <li><a href="#testimonials" class="nav-link">آراء العملاء</a></li>
+        <li><a href="#contact" class="nav-link">تواصل معنا</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-login" id="ddAuthBtn" onclick="openDDLogin()">🔐 دخول</button>
+        <button class="btn-cart" id="cartBtn" aria-label="عربة التسوق">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="القائمة">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="logo.jpg" alt="Diamond Dust" class="hero-img" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="hero-line-1">Diamond</span>
+        <span class="hero-line-2">Dust</span>
+      </h1>
+      <p class="hero-sub">للعطر الفاخر بصمة<br/>و Diamond Dust بصمتك</p>
+      <div class="hero-actions">
+        <a href="#collection" class="btn-primary" id="hero-shop-btn">تسوق الآن</a>
+        <a href="#about" class="btn-ghost" id="hero-about-btn">اعرف أكثر</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num" data-target="500">0</span><span>+</span>
+          <span class="stat-label">عطر فاخر</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="15000">0</span><span>+</span>
+          <span class="stat-label">عميل سعيد</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="20">0</span><span>+</span>
+          <span class="stat-label">سنة خبرة</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-dot"></div>
+      <span>اسحب للأسفل</span>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES STRIP ============ -->
+  <section class="features-strip">
+    <div class="features-container">
+      <div class="feature-item">
+        <div class="feature-icon">🚚</div>
+        <div class="feature-text">
+          <h3>توصيل مجاني</h3>
+          <p>للطلبات فوق 500 جنيه</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">✅</div>
+        <div class="feature-text">
+          <h3>ضمان الأصالة</h3>
+          <p>100% منتجات أصلية</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">↩️</div>
+        <div class="feature-text">
+          <h3>إرجاع مجاني</h3>
+          <p>خلال 14 يوم</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-text">
+          <h3>دفع آمن</h3>
+          <p>بجميع طرق الدفع</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COLLECTION ============ -->
+  <section class="collection" id="collection">
+    <div class="section-header">
+      <span class="section-tag">مجموعتنا المميزة</span>
+      <h2 class="section-title">أرقى العطور الفاخرة</h2>
+      <p class="section-desc">كل زجاجة تحكي قصة، كل رائحة تترك أثراً لا يُنسى</p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-filter="all" id="filter-all">الكل</button>
+      <button class="filter-btn" data-filter="men" id="filter-men">رجالي</button>
+      <button class="filter-btn" data-filter="women" id="filter-women">نسائي</button>
+      <button class="filter-btn" data-filter="bestselling" id="filter-bestselling">⭐ الأكثر مبيعاً</button>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="about">
+    <div class="about-container">
+      <div class="about-img-wrap">
+        <img src="images/about.png" alt="محل العطور" class="about-img" loading="lazy"/>
+        <div class="about-badge-float">
+          <span class="badge-num">20+</span>
+          <span class="badge-text">سنة خبرة</span>
+        </div>
+      </div>
+      <div class="about-content">
+        <span class="section-tag">قصتنا</span>
+        <h2 class="about-title">حيث تلتقي الفنون<br/>بالروائح النادرة</h2>
+        <p class="about-p">منذ أكثر من عشرين عاماً، ونحن نحرف العطور إلى تحف فنية تعيش على جلدك. نختار خامات الطبيعة الأرقى من أصقاع العالم لنقدمها إليك في أبهى صورة.</p>
+        <p class="about-p">كل عطر نصنعه يمر بمراحل دقيقة من الاختيار والمزج، ليحمل توقيع الاحترافية والشغف معاً. نؤمن أن الرائحة هي الهوية، وأن كل شخص يستحق رائحة تعبر عنه.</p>
+        <div class="about-features">
+          <div class="about-feat">
+            <div class="feat-icon">🌿</div>
+            <div>
+              <h4>مكونات طبيعية 100%</h4>
+              <p>لا مواد صناعية ضارة</p>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="feat-icon">🏆</div>
+            <div>
+              <h4>جوائز عالمية</h4>
+              <p>15 جائزة للتميز في العطور</p>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="feat-icon">🌍</div>
+            <div>
+              <h4>شحن دولي</h4>
+              <p>لأكثر من 50 دولة حول العالم</p>
+            </div>
+          </div>
+        </div>
+        <a href="#collection" class="btn-primary">اكتشف مجموعتنا</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROMO BANNER ============ -->
+  <section class="promo-banner">
+    <div class="promo-content">
+      <div class="promo-glow"></div>
+      <span class="promo-tag">عرض محدود الوقت</span>
+      <h2 class="promo-title">احصل على <span class="promo-highlight">خصم 25%</span> على طلبك الأول</h2>
+      <p class="promo-sub">استخدم الكود <strong class="promo-code" id="promoCode">ALAM25</strong> عند الدفع</p>
+      <button class="btn-primary" id="copyCodeBtn">انسخ الكود</button>
+    </div>
+    <div class="promo-timer" id="promoTimer">
+      <div class="timer-item"><span class="timer-num" id="timerHours">12</span><span class="timer-label">ساعة</span></div>
+      <div class="timer-item"><span class="timer-num" id="timerMins">00</span><span class="timer-label">دقيقة</span></div>
+      <div class="timer-item"><span class="timer-num" id="timerSecs">00</span><span class="timer-label">ثانية</span></div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="testimonials" id="testimonials">
+    <div class="section-header">
+      <span class="section-tag">آراء عملائنا</span>
+      <h2 class="section-title">ماذا يقولون عنا؟</h2>
+    </div>
+    <div class="testimonials-slider" id="testimonialsSlider">
+    <div class="testimonial-track" id="testimonialTrack">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"عود ماركوجا تحفة فنية! مزيج العود مع الفاكهة شيء خيالي، ثباته خرافي والكل يسألني عن اسمه. أنصح فيه بشدة."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#8b5cf6">أ</div>
+          <div class="author-info">
+            <h4>أحمد عبدالعال</h4>
+            <span>المنصورة، مصر</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"هيبسكس ماهجاد عطر مختلف عن أي حاجة شميتها قبل كده. رومانسي وفخم في نفس الوقت. جوزي انبهر بيه من أول رشة!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#ec4899">م</div>
+          <div class="author-info">
+            <h4>مريم الشامي</h4>
+            <span>الإسكندرية، مصر</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"قصة امبريال فالي عطر رجالي بمعنى الكلمة. قوي، فخم، وثابت لدرجة إنه مبيروحش من الهدوم حتى بعد الغسيل. كل زمايلي في الشغل سألوني عنه."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#2563eb">م</div>
+          <div class="author-info">
+            <h4>محمود سعيد</h4>
+            <span>الجيزة، مصر</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"خمرة قهوه عطر الشتاء المثالي! ريحة القهوة والقرفة والفانيليا تخلق جو دافئ وجميل. ثبات وفوحان لا يوصف. طلبت تاني علبة."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#92400e">ن</div>
+          <div class="author-info">
+            <h4>نورهان علي</h4>
+            <span>طنطا، مصر</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"سيلفر سنت منعش ونضيف، عطر يومي رائع. كل ما ألبسه الناس تمدح ريحته وسعره في متناول الجميع. من أفضل العطور الكلاسيكية."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#059669">م</div>
+          <div class="author-info">
+            <h4>مصطفى كريم</h4>
+            <span>الغردقة، مصر</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"جوتشي بلاك عطر جريء وأنيق. رائحة الجلود والأخشاب تخطف الأنفاس. مناسب للسهرات والمناسبات الخاصة. إحساس بالقوة والثقة."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#1e293b">ع</div>
+          <div class="author-info">
+            <h4>عمر هاني</h4>
+            <span>المنيا، مصر</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"جوتشي ابسولو أبهرني من أول استعمال. نوتة الأماريتو والقهوة مع الورد حاجة تانية خالص. فخامة وثبات يدوم طول اليوم."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#7c3aed">ف</div>
+          <div class="author-info">
+            <h4>فاطمة الزهراء</h4>
+            <span>بورسعيد، مصر</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"توني ايومي مونكي سبيشال عطر مش للجميع، ده لعشاق التميز. قوي، جريء، وفريد. كل ما ألبسه الحدث يسألوني إيه ده؟ أنصح كل محب للعطور القوية."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#b91c1c">س</div>
+          <div class="author-info">
+            <h4>سيف الدين</h4>
+            <span>أسوان، مصر</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+      </div>
+    </div>
+    <div class="slider-controls">
+      <button class="slider-btn" id="prevBtn" aria-label="السابق">&#10094;</button>
+      <div class="slider-dots" id="sliderDots"></div>
+      <button class="slider-btn" id="nextBtn" aria-label="التالي">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <div class="contact-container">
+      <div class="contact-info">
+        <span class="section-tag">تواصل معنا</span>
+        <h2 class="contact-title">نحن هنا لمساعدتك</h2>
+        <p class="contact-p">هل لديك استفسار؟ فريقنا متاح 7 أيام في الأسبوع لخدمتك</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <h4>اتصل بنا</h4>
+              <a href="tel:+201000553703">01000553703</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <h4>البريد الإلكتروني</h4>
+              <a href="mailto:emadsamy8111@gmail.com">emadsamy8111@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4>موقعنا</h4>
+              <span>القاهرة، جمهورية مصر العربية</span>
+            </div>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="#" class="social-btn" id="social-fb" aria-label="فيسبوك">f</a>
+          <a href="#" class="social-btn" id="social-ig" aria-label="انستاغرام">📷</a>
+          <a href="#" class="social-btn" id="social-wa" aria-label="واتساب">💬</a>
+          <a href="#" class="social-btn" id="social-tg" aria-label="تيليجرام">✈</a>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="name">الاسم</label>
+          <input type="text" id="name" name="name" placeholder="أدخل اسمك الكريم" required />
+        </div>
+        <div class="form-group">
+          <label for="email">البريد الإلكتروني</label>
+          <input type="email" id="email" name="email" placeholder="email@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">رقم الهاتف</label>
+          <input type="tel" id="phone" name="phone" placeholder="01X XXXX XXXX" />
+        </div>
+        <div class="form-group">
+          <label for="message">رسالتك</label>
+          <textarea id="message" name="message" rows="4" placeholder="كيف يمكننا مساعدتك؟" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary form-submit" id="submitContactBtn">أرسل رسالتك ✦</button>
+        <div class="form-success" id="formSuccess">✅ تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.</div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="logo.jpg" alt="Diamond Dust" class="footer-logo-img" />
+        </div>
+        <p class="footer-desc">نقدم أرقى العطور الفاخرة الأصيلة من مختلف أنحاء العالم. جودة بلا تنازل، وخدمة بلا حدود.</p>
+      </div>
+      <div class="footer-links">
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#collection">المجموعة</a></li>
+          <li><a href="#about">من نحن</a></li>
+          <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>خدمات العملاء</h4>
+        <ul>
+          <li><a href="#">سياسة الإرجاع</a></li>
+          <li><a href="#">الشحن والتوصيل</a></li>
+          <li><a href="#">الأسئلة الشائعة</a></li>
+          <li><a href="#">سياسة الخصوصية</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h4>اشترك في نشرتنا</h4>
+        <p>احصل على آخر العروض والمنتجات الجديدة</p>
+        <div class="newsletter-form">
+          <input type="email" id="newsletterEmail" placeholder="بريدك الإلكتروني" />
+          <button class="btn-newsletter" id="newsletterBtn">اشترك</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Diamond Dust. جميع الحقوق محفوظة.</p>
+      <p>Diamond Dust — للرائحة التي تستحقها</p>
+    </div>
+  </footer>
+
+  <!-- ============ CART SIDEBAR ============ -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>🛍️ عربة التسوق</h3>
+      <button class="cart-close" id="cartClose" aria-label="إغلاق العربة">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty" id="cartEmpty">
+        <div class="cart-empty-icon">🛒</div>
+        <p>عربتك فارغة</p>
+        <a href="#collection" class="btn-primary" id="cart-shop-link">تسوق الآن</a>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-total">
+        <span>المجموع:</span>
+        <span class="cart-total-price" id="cartTotal">0 جنيه</span>
+      </div>
+      <button class="btn-primary btn-checkout" id="checkoutBtn">إتمام الشراء</button>
+    </div>
+  </div>
+
+  <!-- ============ QUICK VIEW MODAL ============ -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div class="product-modal" id="productModal">
+    <button class="modal-close" id="modalClose" aria-label="إغلاق">✕</button>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+
+  <!-- ============ TOAST ============ -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ============ PINE SCRIPT CODE (PRESERVED) ============ -->
+  <!-- 
+  ╔══════════════════════════════════════════════════════════════════════════╗
+  ║           BREAKOUT TARGETS [AlgoAlpha] - EGX 1H STRICT RANGE           ║
+  ║                    Pine Script v6 - TradingView Indicator               ║
+  ╠══════════════════════════════════════════════════════════════════════════╣
+  ║                                                                          ║
+  ║ // This Pine Script code is subject to the terms of the Mozilla Public   ║
+  ║ // License 2.0 at https://mozilla.org/MPL/2.0/                           ║
+  ║ // (c) AlgoAlpha                                                          ║
+  ║                                                                          ║
+  ║ //@version=6                                                              ║
+  ║ indicator("Breakout Targets [AlgoAlpha] - EGX 1H Strict Range",          ║
+  ║           "AA-BO-RNG", overlay = true, max_lines_count = 500)            ║
+  ║                                                                          ║
+  ║ len = input.int(99, "Range Detection Period", group = "Main Settings")   ║
+  ║ overlap = not input.bool(true, "Prevent Overlap", group = "Main Settings")║
+  ║                                                                          ║
+  ║ [... Full indicator logic preserved below in embedded script tag ...]    ║
+  ║                                                                          ║
+  ╚══════════════════════════════════════════════════════════════════════════╝
+  -->
+  <script id="pine-script-preserved" type="text/pine-script">
+//@version=6
+indicator("Breakout Targets [AlgoAlpha] - EGX 1H Strict Range", "AA-BO-RNG", overlay = true, max_lines_count = 500)
+
+len = input.int(99, "Range Detection Period", group = "Main Settings")
+overlap = not input.bool(true, "Prevent Overlap", group = "Main Settings")
+
+shw_TP1 = input.bool(true, title="Show Original Take Profit Levels", group="Original Targets")
+atr_period = input.int(14, title="Volatility (ATR) period", minval=1, group="Original Targets")
+sl_multiplier = input.float(5, title="Stop Loss ATR Multiplier", minval=0.1, step=0.1, group="Original Targets")
+tp1_multiplier = input.float(0.5, title="TP1 Multiplier", minval=0.1, step=0.1, group="Original Targets")
+tp2_multiplier = input.float(1.0, title="TP2 Multiplier", minval=0.1, step=0.1, group="Original Targets")
+tp3_multiplier = input.float(1.5, title="TP3 Multiplier", minval=0.1, step=0.1, group="Original Targets")
+
+green = input.color(#00ffbb, title = "Bullish Colour", group = "Appearance")
+red   = input.color(#ff1100, title = "Bearish Colour", group = "Appearance")
+
+show_emas = input.bool(true, title="Show EMAs", group="EMA Settings")
+ema21_col  = input.color(color.blue, title="EMA 21 Color", group="EMA Settings")   
+ema50_col  = input.color(color.yellow, title="EMA 50 Color", group="EMA Settings") 
+ema100_col = input.color(color.white, title="EMA 100 Color", group="EMA Settings") 
+ema200_col = input.color(color.purple, title="EMA 200 Color", group="EMA Settings")
+
+ema21  = ta.ema(close, 21)
+ema50  = ta.ema(close, 50)
+ema100 = ta.ema(close, 100)
+ema200 = ta.ema(close, 200)
+
+plot(show_emas ? ema21 : na, title="EMA 21", color=ema21_col, linewidth=2)
+plot(show_emas ? ema50 : na, title="EMA 50", color=ema50_col, linewidth=2)
+plot(show_emas ? ema100 : na, title="EMA 100", color=ema100_col, linewidth=2)
+plot(show_emas ? ema200 : na, title="EMA 200", color=ema200_col, linewidth=3)
+
+crossover_triggered  = ta.crossover(close, ema21)
+crossunder_triggered = ta.crossunder(close, ema21)
+
+ema21_is_rising  = ema21 > ema21[1]
+ema21_is_falling = ema21 < ema21[1]
+
+buy_trend   = close > ema50 and ema21 > ema50 and ema21_is_rising and close > ema200
+buy_trigger = crossover_triggered 
+raw_buy_signal = buy_trend and buy_trigger
+
+sell_trend   = close < ema50 and ema21 < ema50 and ema21_is_falling and close < ema200
+sell_trigger = crossunder_triggered 
+raw_sell_signal = sell_trend and sell_trigger
+
+var int last_buy_bar = 0
+var int last_sell_bar = 0
+
+bool buy_signal = false
+bool sell_signal = false
+
+if raw_buy_signal
+    if (bar_index - last_buy_bar) > 4
+        buy_signal := true
+        last_buy_bar := bar_index
+
+if raw_sell_signal
+    if (bar_index - last_sell_bar) > 4
+        sell_signal := true
+        last_sell_bar := bar_index
+
+var line custom_entry_line = na
+var line custom_sl_line = na
+var line custom_tp_line = na
+var linefill custom_lf_sl = na
+var linefill custom_lf_tp = na
+
+if buy_signal
+    float entry_price = ema21
+    float sl_price    = ema50 
+    float risk        = math.abs(entry_price - sl_price)
+    float tp_price    = entry_price + (risk * 2.0) 
+    line.delete(custom_entry_line)
+    line.delete(custom_sl_line)
+    line.delete(custom_tp_line)
+    linefill.delete(custom_lf_sl)
+    linefill.delete(custom_lf_tp)
+    custom_entry_line := line.new(bar_index, entry_price, bar_index, entry_price, color=color.blue, width=2)
+    custom_sl_line    := line.new(bar_index, sl_price, bar_index, sl_price, color=color.red, width=2)
+    custom_tp_line    := line.new(bar_index, tp_price, bar_index, tp_price, color=color.green, width=2)
+    custom_lf_sl := linefill.new(custom_entry_line, custom_sl_line, color.new(color.red, 90))
+    custom_lf_tp := linefill.new(custom_entry_line, custom_tp_line, color.new(color.green, 90))
+
+if sell_signal
+    float entry_price = ema21
+    float sl_price    = ema50
+    float risk        = math.abs(sl_price - entry_price)
+    float tp_price    = entry_price - (risk * 2.0) 
+    line.delete(custom_entry_line)
+    line.delete(custom_sl_line)
+    line.delete(custom_tp_line)
+    linefill.delete(custom_lf_sl)
+    linefill.delete(custom_lf_tp)
+    custom_entry_line := line.new(bar_index, entry_price, bar_index, entry_price, color=color.blue, width=2)
+    custom_sl_line    := line.new(bar_index, sl_price, bar_index, sl_price, color=color.red, width=2)
+    custom_tp_line    := line.new(bar_index, tp_price, bar_index, tp_price, color=color.green, width=2)
+    custom_lf_sl := linefill.new(custom_entry_line, custom_sl_line, color.new(color.red, 90))
+    custom_lf_tp := linefill.new(custom_entry_line, custom_tp_line, color.new(color.green, 90))
+
+line.set_x2(custom_entry_line, bar_index)
+line.set_x2(custom_sl_line, bar_index)
+line.set_x2(custom_tp_line, bar_index)
+
+len_ = int(len/2)
+pivh = ta.pivothigh(len_, len_)
+pivl = ta.pivotlow(len_, len_)
+v1 = ta.wma(math.abs(close-open), len)
+v2 = ta.ema(math.abs(close-open), len)
+channel_crossunder = ta.crossunder(v1, v2)
+
+var boxes       = array.new_box()
+var boxes_u     = array.new_box()
+var boxes_l     = array.new_box()
+var centerLines = array.new_line()
+volatility = ta.atr(atr_period)
+var line entry_line = na
+var line sl_line = na
+var line tp1_line = na
+var line fill_tp2 = na 
+var line tp2_line = na
+var line tp3_line = na 
+var label entry_label = na
+var label sl_label = na
+var label tp1_label = na
+var label tp2_label = na
+var label tp3_label = na
+var linefill lf1 = na
+var linefill lf2 = na
+var int trade_dir = 0
+var bool tp3_hit = false
+pivh_lvl_0 = ta.valuewhen(not na(pivh), high[len_], 0)
+pivh_index_0 = ta.valuewhen(not na(pivh), bar_index[len_], 0)
+pivl_lvl_0 = ta.valuewhen(not na(pivl), low[len_], 0)
+pivl_index_0 = ta.valuewhen(not na(pivl), bar_index[len_], 0)
+vola = ta.atr(len)/2
+var wede = 0
+if boxes.size() > 0
+    wede := boxes.first().get_right()
+ada = 0
+
+if channel_crossunder
+    float h = na
+    float l = na
+    int start_idx = na
+    if pivh_index_0 > pivl_index_0
+        h := pivh_lvl_0
+        start_idx := pivh_index_0
+        int dist = bar_index - start_idx
+        if dist > 0
+            float min_val = high
+            for i = 0 to dist - 1
+                min_val := math.min(min_val, low[i])
+            l := min_val
+    else
+        l := pivl_lvl_0
+        start_idx := pivl_index_0
+        int dist = bar_index - start_idx
+        if dist > 0
+            float max_val = low
+            for i = 0 to dist - 1
+                max_val := math.max(max_val, high[i])
+            h := max_val
+    ada := start_idx
+    if (not na(h)) and (not na(l)) and (close <= h and close >= l) and (overlap or start_idx > wede)
+        boxes.unshift(box.new(start_idx, h, bar_index, l, bgcolor = color.new(chart.fg_color, 90), border_color = na))
+        boxes_u.unshift(box.new(start_idx, h, bar_index, h - vola, bgcolor = color.new(red, 70), border_color = na))
+        boxes_l.unshift(box.new(start_idx, l + vola, bar_index, l, bgcolor = color.new(green, 70), border_color = na))
+        float centerY = (h + l) / 2
+        centerLines.unshift(line.new(start_idx, centerY, bar_index, centerY, color = color.new(chart.fg_color, 50), width = 1, style = line.style_dashed))
+
+upbreak = 0.0
+downbreak = 0.0
+bool new_breakout = false
+if boxes.size() > 0
+    for i = boxes.size()-1 to 0
+        box b = boxes.get(i)
+        float top = b.get_top()
+        float bot = b.get_bottom()
+        if close > top
+            upbreak := bot
+            boxes.remove(i)
+            boxes_u.remove(i)
+            boxes_l.remove(i)
+            centerLines.remove(i)
+            if shw_TP1
+                new_breakout := true
+                trade_dir := 1
+                tp3_hit := false
+                float SL = low - volatility * sl_multiplier
+                float TP1_lvl = close + math.abs(close - SL) * tp1_multiplier
+                float TP2_lvl = close + math.abs(close - SL) * tp2_multiplier
+                float TP3_lvl = close + math.abs(close - SL) * tp3_multiplier
+                line.delete(entry_line)
+                label.delete(entry_label)
+                line.delete(sl_line)
+                label.delete(sl_label)
+                line.delete(tp1_line)
+                label.delete(tp1_label)
+                line.delete(tp2_line)
+                label.delete(tp2_label)
+                line.delete(tp3_line)
+                label.delete(tp3_label)
+                entry_line := line.new(bar_index, close, bar_index, close, color = green, width = 3)
+                entry_label := label.new(bar_index, close, text = "Entry " + str.tostring(close, format.mintick), style = label.style_label_left, color = green, textcolor = color.white)
+                sl_line := line.new(bar_index, SL, bar_index, SL, color = color.new(red, 80), width = 3)
+                sl_label := label.new(bar_index, SL, text = "SL " + str.tostring(SL, format.mintick), style = label.style_label_left, color = color.new(red, 80), textcolor = color.white)
+                tp1_line := line.new(bar_index, TP1_lvl, bar_index, TP1_lvl, color = color.new(green, 80), width = 3)
+                tp1_label := label.new(bar_index, TP1_lvl, text = "TP1 " + str.tostring(TP1_lvl, format.mintick), style = label.style_label_left, color = color.new(green, 80), textcolor = color.white)
+                tp2_line := line.new(bar_index, TP2_lvl, bar_index, TP2_lvl, color = color.new(green, 80), width = 3)
+                tp2_label := label.new(bar_index, TP2_lvl, text = "TP2 " + str.tostring(TP2_lvl, format.mintick), style = label.style_label_left, color = color.new(green, 80), textcolor = color.white)
+                tp3_line := line.new(bar_index, TP3_lvl, bar_index, TP3_lvl, color = color.new(green, 80), width = 3)
+                tp3_label := label.new(bar_index, TP3_lvl, text = "TP3 " + str.tostring(TP3_lvl, format.mintick), style = label.style_label_left, color = color.new(green, 80), textcolor = color.white)
+                linefill.delete(lf1)
+                linefill.delete(lf2)
+                lf1 := linefill.new(entry_line, sl_line, color.new(red, 95))
+                lf2 := linefill.new(entry_line, tp3_line, color.new(green, 95))
+        else if close < bot
+            downbreak := top
+            boxes.remove(i)
+            boxes_u.remove(i)
+            boxes_l.remove(i)
+            centerLines.remove(i)
+            if shw_TP1
+                new_breakout := true
+                trade_dir := -1
+                tp3_hit := false
+                float SL = high + volatility * sl_multiplier
+                float TP1_lvl = close - math.abs(close - SL) * tp1_multiplier
+                float TP2_lvl = close - math.abs(close - SL) * tp2_multiplier
+                float TP3_lvl = close - math.abs(close - SL) * tp3_multiplier
+                line.delete(entry_line)
+                label.delete(entry_label)
+                line.delete(sl_line)
+                label.delete(sl_label)
+                line.delete(tp1_line)
+                label.delete(tp1_label)
+                line.delete(tp2_line)
+                label.delete(tp2_label)
+                line.delete(tp3_line)
+                label.delete(tp3_label)
+                entry_line := line.new(bar_index, close, bar_index, close, color = red, width = 3)
+                entry_label := label.new(bar_index, close, text = "Entry " + str.tostring(close, format.mintick), style = label.style_label_left, color = red, textcolor = color.white)
+                sl_line := line.new(bar_index, SL, bar_index, SL, color = color.new(red, 80), width = 3)
+                sl_label := label.new(bar_index, SL, text = "SL " + str.tostring(SL, format.mintick), style = label.style_label_left, color = color.new(red, 80), textcolor = color.white)
+                tp1_line := line.new(bar_index, TP1_lvl, bar_index, TP1_lvl, color = color.new(green, 80), width = 3)
+                tp1_label := label.new(bar_index, TP1_lvl, text = "TP1 " + str.tostring(TP1_lvl, format.mintick), style = label.style_label_left, color = color.new(green, 80), textcolor = color.white)
+                tp2_line := line.new(bar_index, TP2_lvl, bar_index, TP2_lvl, color = color.new(green, 80), width = 3)
+                tp2_label := label.new(bar_index, TP2_lvl, text = "TP2 " + str.tostring(TP2_lvl, format.mintick), style = label.style_label_left, color = color.new(green, 80), textcolor = color.white)
+                tp3_line := line.new(bar_index, TP3_lvl, bar_index, TP3_lvl, color = color.new(green, 80), width = 3)
+                tp3_label := label.new(bar_index, TP3_lvl, text = "TP3 " + str.tostring(TP3_lvl, format.mintick), style = label.style_label_left, color = color.new(green, 80), textcolor = color.white)
+                linefill.delete(lf1)
+                linefill.delete(lf2)
+                lf1 := linefill.new(entry_line, sl_line, color.new(red, 95))
+                lf2 := linefill.new(entry_line, tp3_line, color.new(green, 95))
+        else
+            b.set_right(bar_index)
+            boxes_u.get(i).set_right(bar_index)
+            boxes_l.get(i).set_right(bar_index)
+            centerLines.get(i).set_x2(bar_index)
+
+if not new_breakout and not tp3_hit
+    line.set_x2(entry_line, bar_index)
+    label.set_x(entry_label, bar_index)
+    line.set_x2(sl_line, bar_index)
+    label.set_x(sl_label, bar_index)
+    line.set_x2(tp1_line, bar_index)
+    label.set_x(tp1_label, bar_index)
+    line.set_x2(tp2_line, bar_index)
+    label.set_x(tp2_label, bar_index)
+    line.set_x2(tp3_line, bar_index)
+    label.set_x(tp3_label, bar_index)
+    float tp3_level = line.get_y1(tp3_line)
+    if not na(tp3_level)
+        if trade_dir == 1 and high >= tp3_level
+            tp3_hit := true
+        else if trade_dir == -1 and low <= tp3_level
+            tp3_hit := true
+
+plotshape(upbreak != 0 ? high : na, "Bullish Breakout Signal", shape.labelup, location.belowbar, green, text = "/\\", textcolor = chart.fg_color)
+plotshape(downbreak != 0 ? low : na, "Bearish Breakout Signal", shape.labeldown, location.abovebar, red, text = "\\/", textcolor = chart.fg_color)
+
+var int state_waiting_for = 1
+
+show_box_signals = input.bool(true, "Show Box Signals", group = "Box Channel System")
+
+if show_box_signals and boxes.size() > 0
+    float box_top = boxes.get(0).get_top()
+    float box_bottom_val = boxes.get(0).get_bottom()
+    float green_zone_highest = box_bottom_val + vola
+    float red_zone_lowest    = box_top - vola
+    float clean_green_average = (box_bottom_val + green_zone_highest) / 2.0
+    float clean_red_average   = (box_top + red_zone_lowest) / 2.0
+    hit_green_zone = low <= green_zone_highest and low >= box_bottom_val
+    hit_red_zone   = high >= red_zone_lowest and high <= box_top
+    bullish_trend_only = close > ema100 and close > ema200
+    bearish_trend_only = close < ema100 and close < ema200
+    if bullish_trend_only and hit_green_zone and state_waiting_for == 1
+        label.new(bar_index, box_bottom_val, text="BUY " + str.tostring(clean_green_average, format.mintick), color=color.green, textcolor=color.white, style=label.style_label_up)
+        state_waiting_for := 2 
+    if bearish_trend_only and hit_red_zone and state_waiting_for == 2
+        label.new(bar_index, box_top, text="SELL " + str.tostring(clean_red_average, format.mintick), color=color.red, textcolor=color.white, style=label.style_label_down)
+        state_waiting_for := 1
+  </script>
+
+  <!-- ============ ADMIN PANEL (hidden by default) ============ -->
+  <div id="adminPanel" style="display:none;background:#0a0806;color:#e8e0d0;padding:24px;font-family:'Cairo',sans-serif;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+        <h1 style="color:#c9a84c;font-size:1.3rem;" id="adminTitle">📊 لوحة التحكم</h1>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:16px;align-items:center;"><button class="btn-gold" onclick="adminShow('dashboard')" title="لوحة التحكم" style="font-size:1.6rem;padding:12px 18px;">📊</button>
+        <button class="btn-gold" onclick="adminShow('inventory')" title="المخزون" style="font-size:1.6rem;padding:12px 18px;">🧪</button>
+        <button class="btn-gold" onclick="adminShow('products')" title="المنتجات" style="font-size:1.6rem;padding:12px 18px;">🧴</button>
+        <button class="btn-gold" onclick="adminShow('customers')" title="العملاء" style="font-size:1.6rem;padding:12px 18px;">👥</button>
+        <button class="btn-gold" onclick="adminShow('orders')" title="طلبات العملاء" style="font-size:1.6rem;padding:12px 18px;">📦</button>
+        <button class="btn-gold" onclick="adminShow('purchases')" title="إذون إضافة المخازن" style="font-size:1.6rem;padding:12px 18px;">📋</button>
+        <button class="btn-gold" onclick="adminShow('sales')" title="المبيعات" style="font-size:1.6rem;padding:12px 18px;">📈</button>
+        <button class="btn-gold" onclick="adminShow('settings')" title="الإعدادات" style="font-size:1.6rem;padding:12px 18px;">⚙️</button>
+        <button class="btn-gold" onclick="adminLogout()" title="تسجيل الخروج" style="background:#dc3545;color:white;font-size:1.3rem;padding:12px 18px;">🚪</button></div>
+      </div>
+      <div id="adminContent"></div>
+    </div>
+  </div>
+
+  <!-- Admin modal -->
+  <div id="adminModalOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9999;align-items:center;justify-content:center;"></div>
+  <div id="adminModal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#1a1510;border:1px solid #2a2218;border-radius:16px;padding:28px;width:500px;max-width:90vw;max-height:85vh;overflow-y:auto;z-index:10000;color:#e8e0d0;"></div>
+  <div id="adminToast" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#c9a84c;color:#0a0806;padding:12px 24px;border-radius:8px;font-weight:600;z-index:99999;display:none;font-family:'Cairo',sans-serif;"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
